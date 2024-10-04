@@ -1,0 +1,11 @@
+:root {
+  --background-image: url(../images/cover-image-dark.png);
+  --font-family: 'IBM Plex mono', sans-serif;
+  --accent-color: #ff0070;
+  --button-color: #FF0070;
+  --main-text: #DB00FF;
+  --name-content: #FF0070;
+  --text-color: #F1B2CE;
+  --bg-text: #FF0070;
+  --button-hover: rgba(255, 0, 112, 0.4);
+}

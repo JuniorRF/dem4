@@ -1,0 +1,283 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  block-size: 100%;
+}
+
+.page {
+  inline-size: 1200px;
+  block-size: 100%;
+  margin: auto;
+  color: #fff;
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-size: 18px;
+  background-color: #1b1919;
+  display: flex;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol,
+li,
+blockquote,
+fieldset {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-inline-start: 30px;
+}
+
+.result {
+  display: flex;
+  flex-direction: column;
+}
+
+.result__video-container{
+  position: relative;
+  inline-size : 711px;
+  block-size: 386px;
+}
+
+.result__video {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+.search-form {
+  display: flex;
+  justify-content: space-between;
+  margin-block-start: 20px;
+}
+
+fieldset,
+.search-form__textfield {
+  border: none;
+}
+
+.search-form__textfield {
+  background-color: transparent;
+  border: none; /* тогда текст прыгает из-за пикселя */
+  /* border: 1px solid transparent; */
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  color: #fff;
+  inline-size: 225px;
+  /* width: 100%; */
+  /* max-width: 225px; */
+  /* в этом макете не работает =( */
+  /* font-family: inherit; */
+  font-size: 18px;
+  appearance: none;
+
+  &:active {
+    border: 1px solid #fff;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 1px solid #fff;
+    outline-offset: 1px;
+  }
+}
+
+.search-form__label {
+  width: fit-content;
+  cursor: pointer;
+}
+
+.search-form__label:hover .search-form__label-text {
+  text-decoration: underline;
+}
+
+.search-form__label:has(:focus-visible) {
+  outline: 1px solid #fff;
+  outline-offset: 1px;
+}
+
+.search-form__fieldset-title {
+  margin-block-end: 1px;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.search-form__checkbox-list {
+  display: flex;
+  gap: 15px;
+}
+
+.search-form__pseudo-checkbox {
+  display: inline-block;
+  inline-size: 19px;
+  block-size: 19px;
+  vertical-align: middle;
+  border: 1px solid #fff;
+}
+
+.search-form__checkbox:checked + 
+.search-form__pseudo-checkbox::after {
+  content: '';
+  display: block;
+  margin: 1px;
+  inline-size: 15px;
+  block-size: 15px;
+  background-color: #fff;
+  }
+
+.button {
+  border: 1px solid #fff;
+  padding: 5px 73px;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 18px;
+  color: inherit;
+  cursor: pointer;
+  background-color: transparent;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:active {
+    background-color: #545050;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 1px solid #fff;
+    outline-offset: 1px;
+  }
+}
+
+.search-form__submit-button {
+  align-self: end;
+}
+
+.more-button {
+  inline-size: 100%;
+}
+
+.content__details {
+  position: relative;
+  bottom: 35px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.title {
+  font-family: Oswald, sans-serif;
+  font-size: 75px;
+  font-weight: 700;
+  line-height: 70.5px;
+  text-transform: uppercase;
+}
+
+.content__accent{
+  color: #545050;
+}
+
+.content__list {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  block-size: 298px;
+  inline-size: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.content__list-item:not(:last-of-type) {
+  margin-bottom: 30px;
+}
+
+.content__card-link{
+  display: block;
+  text-decoration: none;
+  color: #fff;
+  padding: 2px;
+
+  &:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  &:active {
+    background-color: #545050;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 1px solid #fff;
+    outline-offset: 1px;
+  }
+}
+
+.content__card-link_current { 
+  background-color: #545050; 
+} 
+
+.content__video-card {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.content__video-card-description-container {
+  inline-size: 200px;
+}
+
+.content__video-card-title{
+  font-family: Oswald, sans-serif;
+  font-size: 30px;
+  line-height: 41px;
+  text-transform: uppercase;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.content__video-card-description {
+  line-height: 16.2px;
+}
+
+.content__video-card-thumbnail {
+  width: 194px;
+  height: 103px;
+}
