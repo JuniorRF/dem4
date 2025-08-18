@@ -14,3 +14,6 @@ def slozhno_sosredotochitsya(request):
 
 def zakrivayuschiy_teg_f(request):
     return render(request, 'zakrivayuschiy-teg-f.html', )
+
+def mesto(request):
+    return render(request, 'mesto.html', )

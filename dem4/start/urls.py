@@ -9,4 +9,5 @@ urlpatterns = [
     path('posmotri-v-okno', views.posmotri_v_okno, name='posmotri_v_okno'),
     path('slozhno-sosredotochitsya', views.slozhno_sosredotochitsya, name='slozhno-sosredotochitsya'),
     path('zakrivayuschiy-teg-f', views.zakrivayuschiy_teg_f, name='zakrivayuschiy-teg-f'),
+    path('mesto', views.mesto, name='mesto'),
 ]
