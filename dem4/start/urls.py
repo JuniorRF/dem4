@@ -10,4 +10,5 @@ urlpatterns = [
     path('slozhno-sosredotochitsya', views.slozhno_sosredotochitsya, name='slozhno-sosredotochitsya'),
     path('zakrivayuschiy-teg-f', views.zakrivayuschiy_teg_f, name='zakrivayuschiy-teg-f'),
     path('mesto', views.mesto, name='mesto'),
+    path('web-larek', views.web_larek, name='web-larek'),
 ]

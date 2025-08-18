@@ -17,3 +17,6 @@ def zakrivayuschiy_teg_f(request):
 
 def mesto(request):
     return render(request, 'mesto.html', )
+
+def web_larek(request):
+    return render(request, 'web-larek.html', )
