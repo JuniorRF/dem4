@@ -22,7 +22,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'start.apps.StartConfig',
-    # 'django.contrib.admin',
+    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
