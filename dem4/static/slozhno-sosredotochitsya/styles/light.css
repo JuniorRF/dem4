@@ -20,7 +20,3 @@
     --button-hover: rgba(50, 49, 45, 0.4);
     }
 }
-
-.theme_light .rec {
-  visibility: hidden;
-}
