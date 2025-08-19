@@ -1,3 +1,4 @@
+from django.http import request
 from django.shortcuts import render
 
 def index(request):
@@ -20,3 +21,9 @@ def mesto(request):
 
 def web_larek(request):
     return render(request, 'web-larek.html', )
+
+def blog_customizer(request):
+    return render(request, 'blog-customizer.html', )
+
+def stellar_burger(request):
+    return render(request, 'stellar-burger.html', )

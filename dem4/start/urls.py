@@ -11,4 +11,6 @@ urlpatterns = [
     path('zakrivayuschiy-teg-f', views.zakrivayuschiy_teg_f, name='zakrivayuschiy-teg-f'),
     path('mesto', views.mesto, name='mesto'),
     path('web-larek', views.web_larek, name='web-larek'),
+    path('blog-customizer', views.blog_customizer, name='blog-customizer'),
+    path('feed', views.stellar_burger, name='stellar-burger'),
 ]
