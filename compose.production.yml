@@ -10,7 +10,7 @@ services:
       - pg_data:/var/lib/postgresql/data
 
   django:
-    build: ./dem4/
+    image: juniorrf/django-dem4
     env_file: ./dem4/.env
     volumes:
       - static:/backend_static/
@@ -18,8 +18,10 @@ services:
       - db
 
   nginx:
-    build: ./nginx/
+    image: juniorrf/nginx-dem4
     volumes:
       - static:/var/html/static/
     ports:
-      - 80:80
+      - 8000:80
+    depends_on:
+      - django
