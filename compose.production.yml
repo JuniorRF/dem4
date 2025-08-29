@@ -5,13 +5,13 @@ volumes:
 services:
   db:
     image: "postgres:17.6"
-    env_file: ./dem4/.env
+    env_file: .env
     volumes:
       - pg_data:/var/lib/postgresql/data
 
   django:
     image: juniorrf/django-dem4
-    env_file: ./dem4/.env
+    env_file: .env
     volumes:
       - static:/backend_static/
     depends_on:
