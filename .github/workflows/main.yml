@@ -25,7 +25,7 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/django-dem4:latest
 
-   nginx-dem4_push_dockerHub:
+  nginx-dem4_push_dockerHub:
     name: Пилим образ и пушим на докерХаб
     runs-on: ubuntu-latest
     steps:
@@ -43,6 +43,5 @@ jobs:
         with:
           context: ./gateway/
           push: true
-          # Тут вместо username должен быть ваш логин на Docker Hub
           tags: ${{ secrets.DOCKER_USERNAME }}/nginx-dem4:latest 
       
