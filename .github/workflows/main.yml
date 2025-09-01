@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  подготовка и деплой:
+  dem4_push_dockerHub:
     runs-on: ubuntu-latest
     steps:
       - name: получить файлы
