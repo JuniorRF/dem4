@@ -1,4 +1,4 @@
-name: Main Dem4 Workflow
+name: Deploy
 
 on:
   push:
@@ -6,10 +6,22 @@ on:
       - main
 
 jobs:
-  test:
+  подготовка и деплой:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository code
+      - name: получить файлы
         uses: actions/checkout@v5
-      - name: Принт
-        run: tree .
+      - name: Установка сборщика контейнеров Docker
+        uses: docker/setup-buildx-action@v2
+      - name: Авторизация на Docker Hub 
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+      - name: Отправка на https://hub.docker.com/
+        uses: docker/build-push-action@v4
+        with:
+          context: ./dem4/
+          push: true
+          tags: ${{ secrets.DOCKER_USERNAME }}/django-dem4:latest
+      
