@@ -78,7 +78,7 @@ jobs:
           docker compose -f docker-compose.production.yml exec django python manage.py collectstatic
           docker compose -f docker-compose.production.yml exec django cp -r /app/collected_static/. /backend_static/
 
-  send_message:
+  telegram_message:
     runs-on: ubuntu-latest
     needs: deploy
     steps:

@@ -13,7 +13,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-)$4424t#o=m=2t699gd&!wi2q-=f4iprlv64!kcc+)e7r)h+)f'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = 'development' == os.getenv('DEVELOPMENT')
+
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'xn----7sblecanvqf5b6eve.xn--p1ai', 'демчак-резюме.рф', '193.124.59.28']
 
 INSTALLED_APPS = [
@@ -59,6 +60,7 @@ WSGI_APPLICATION = 'dem4.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
+
 
 DATABASES = {
     'default': {

@@ -1,9 +1,13 @@
-# dem4
+# [dem4](https://демчак-резюме.рф)
 
 ### Собираю учебные проекты ЯП в один
 
-##### Зупуск(требуется python ~3.12):
+##### Зупуск(требуется [docker compose](https://docs.docker.com/compose/install/)):
 
-1. клонировать репозиторий
-2. установить зависимости ```pip install -r requirements.txt```
-3. запустить из папки dem4 ```python manage.py runserver```
+- разработка
+
+```docker compose build && docker compose up -d```
+
+- прод
+
+```docker compose -f docker-compose.production.yml down && docker compose -f docker-compose.production.yml up -d```

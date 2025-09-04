@@ -1,19 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
+{% load static %}
 <head>
   <meta charset="UTF-8">
   <title>Дем4</title>
+  <link rel="stylesheet" href="{% static 'base.css' %}">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>💻</text></svg>">
 </head>
 <body>
-  <p>test</p>
+  <p>Это сайт Демчака, в нем есть все мои работы, которые я делал для разных проектов</p>
+  <p>Димастый говорит ХУЙ БЛЯЯЯЯЯТЬ</p>
+
   <p><a href="{% url 'start:ono-tebe-nado' %}">1 работа ОНО ТЕБЕ НАДО</a></p>
   <p><a href="{% url 'start:posmotri_v_okno' %}">2 работа ПОСМОТРИ В ОКНО</a></p>
   <p><a href="{% url 'start:slozhno-sosredotochitsya' %}">3 работа СЛОЖНО СОСРЕДОТОЧИТЬСЯ</a></p>
   <p><a href="{% url 'start:zakrivayuschiy-teg-f' %}">4 работа ЗАКРИВАЮЩИЙ ТЕГ F</a></p>
   <p><a href="{% url 'start:mesto' %}">5 работа МЕСТО</a></p>
   <p><a href="{% url 'start:web-larek' %}">6 работа WEB-LARЁK</a></p>
-  <p><a href="{% url 'start:blog-customizer' %}">7 работа БЛОГ-Кастомизатор(React состояния)</a></p>
-  <p><a href="{% url 'start:stellar-burger' %}">8 работа Бургерная</a></p>
-
+  <p><a href="{% url 'start:blog-customizer' %}">7 работа БЛОГ-Кастомизатор(React)</a></p>
+  <p><a href="{% url 'start:stellar-burger' %}">8 работа Бургерная(React)</a></p>
+  <p class="line">// LOADING PROJECT: <span class="neon">text</span></p>
+  <div class="terminal">
+    <p class="line">[✓] INITIALIZING PORTFOLIO...</p>
+    <p class="line glitch">[!] FIREWALL ACTIVE</p>
+    <p class="line">// WELCOME, USER</p>
+    <div class="cursor">|</div>
+  </div>
+  <script src="{% static 'homepage.js' %}"></script>
 </body>
 </html>
