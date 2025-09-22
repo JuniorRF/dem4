@@ -17,8 +17,11 @@ DEBUG = 'development' == os.getenv('DEVELOPMENT')
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'xn----7sblecanvqf5b6eve.xn--p1ai', 'демчак-резюме.рф', '193.124.59.28']
 
+SHOW_POSTS = 10
+
 INSTALLED_APPS = [
     'start.apps.StartConfig',
+    'posts.apps.PostsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -103,7 +106,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
-LANGUAGE_CODE = 'ru'
+LANGUAGE_CODE = 'ru-RU'
 
 TIME_ZONE = 'Europe/Moscow'
 

@@ -54,6 +54,7 @@
         <li>Git</li>
         <li>PostgreSQL</li>
         <li>Docker</li>
+        <li>NginX</li>
       </ul>
     </div>
     
@@ -69,7 +70,7 @@
 
     <section id="projects" class="section">
       <h2 class="projects-title">
-        Фронтенд проекты
+        ФронтЭнд проекты
       </h2>
       <ul class="projects__list">
         <li class="project">
@@ -146,6 +147,23 @@
         </li>
       </ul>
       </section>
+
+      <section id="projects" class="section">
+        <h2 class="projects-title">
+          БэкЭнд проекты
+        </h2>
+        <ul class="projects__list">
+          <li class="project">
+            <a href="{% url 'posts:home_page' %}">
+              <img class="project__img" src="{% static 'images/yatube.png' %}" alt="YaTube">
+            </a>
+            <div class="project__description">
+              <h3 class="project__name">YaTube</h3>
+              <p class="project__text">Базы данных, шаблоны HTML</p>
+            </div>
+          </li>
+        </ul>
+        </section>
   </main>
   <footer class="footer">
     <p>Сделано с ❤️ и несколькими print()</p>
