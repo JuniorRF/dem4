@@ -22,6 +22,7 @@ SHOW_POSTS = 10
 INSTALLED_APPS = [
     'start.apps.StartConfig',
     'posts.apps.PostsConfig',
+    'users.apps.UsersConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -42,10 +43,12 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'dem4.urls'
 
+TEMPLATES_DIR = BASE_DIR / 'templates'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': [TEMPLATES_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -133,3 +136,7 @@ STATIC_ROOT = BASE_DIR / 'collected_static'
 CSRF_TRUSTED_ORIGINS = [
     'https://xn----7sblecanvqf5b6eve.xn--p1ai'
 ]
+
+AUTH_USER_MODEL = 'users.MyUser'
+
+LOGIN_REDIRECT_URL = 'posts:homepage'

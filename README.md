@@ -8,6 +8,8 @@
 
 ```docker compose build && docker compose up -d```
 ```docker compose exec django python manage.py collectstatic --no-input```
+```docker compose exec django python manage.py makemigrations```
+```docker compose exec django python manage.py migrate```
 
 - прод
 
