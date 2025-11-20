@@ -19,7 +19,7 @@ class Group(models.Model):
 
 
 class Post(models.Model):
-    text = models.TextField(max_length=100, verbose_name='Текст поста')
+    text = models.TextField(max_length=500, verbose_name='Текст поста')
     pub_date = models.DateTimeField(
         auto_now_add=True,
         verbose_name='Дата и время'
@@ -43,6 +43,36 @@ class Post(models.Model):
         ordering = ('-pub_date',)
         verbose_name = 'Публикация'
         verbose_name_plural = 'Публикации'
+
+    def __str__(self):
+        return self.text
+
+
+class Comment(models.Model):
+    post = models.ForeignKey(
+        Post,
+        related_name='comments',
+        on_delete=models.CASCADE,
+        verbose_name='комментарий к посту'
+    )
+    text = models.TextField(
+        verbose_name='Текст коментария',
+    )
+    author = models.ForeignKey(
+        User,
+        related_name='comments',
+        on_delete=models.CASCADE,
+        verbose_name='Автор коментария'
+    )
+    created_at = models.DateTimeField(
+        auto_now_add=True,
+        verbose_name='Добавлено',
+    )
+
+    class Meta:
+        verbose_name = 'коментарий'
+        verbose_name_plural = 'Коментарии'
+        ordering = ('-created_at',)
 
     def __str__(self):
         return self.text

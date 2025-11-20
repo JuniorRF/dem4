@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}
+  {{ post.title }}
+{% endblock %}
+{% block content %}
+  <div class="col d-flex justify-content-center">
+    <div class="card" style="width: 40rem;">
+      <div class="card-body">
+        <h5 class="card-title">{{ post.title }}</h5>
+        <p class="card-text">{{ post.text|linebreaksbr }}</p>
+        {% if user == post.author %}
+          <div class="mb-2">
+            <a class="btn btn-sm" href="{% url 'posts:edit_post' post.id %}" role="button">
+              Отредактировать публикацию
+            </a>
+            <a class="btn btn-bg" href="{% url 'posts:delete_post' post.id %}" role="button">
+              Удалить публикацию
+            </a>
+          </div>
+        {% endif %}
+        {% if request.resolver_match.view_name  == 'posts:detail' %}
+          {% include "includes/comments.html" %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endblock %}

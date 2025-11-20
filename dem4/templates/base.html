@@ -12,16 +12,19 @@
     {% block title %}{% endblock%}
     </title>
   </head>
-  <body>       
+  <body class="page">       
     <header>
       {% include 'includes/header.html' %}
     </header>
-    <main>
-      {% block content %}
-        нет контента
-      {% endblock%}
-    <footer>
-      {% include 'includes/footer.html' %} 
-    </footer>
+    <main class="container content">
+      <div>
+        {% block content %}
+          нет контента
+        {% endblock%}
+      </div>
+    </main>
   </body>
+  <footer class="footer">
+    {% include 'includes/footer.html' %} 
+  </footer>
 </html> 

@@ -14,24 +14,45 @@
       </p>
     {% endif %}
   {% endif %}
-  <div class="col d-flex justify-content-center">
+  <div class="my-4 col d-flex justify-content-center">
     <div class="card" style="width: 40rem;">
       <div class="card-header">
         Войти в систему
       </div>
       <div class="card-body">
-        <form method="post" action="{% url 'login' %}">
+        <form class="form-login" method="post" action="{% url 'login' %}">
           {% csrf_token %}
-          {{ form.as_p }}
+          <input class="form-login-input" type="text" name="username" autofocus autocapitalize="none" maxlength="150" required placeholder="Имя пользователя">
+          <input class="form-login-input" type="password" name="password" required placeholder="пароль">
           <input type="hidden" name="next" value="{{ next }}">
           <button type="submit" class="btn btn-primary">
             Войти
           </button>
         </form>
-        <div>
+        
+        <div class="text-center">
           <a href="{% url 'password_reset' %}">Забыли пароль?</a>
         </div>
       </div>
     </div>
   </div>
 {% endblock %}
+
+<form method="post" action="{% url 'login' %}">
+  <input type="text" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="150" required placeholder="Имя пользователя">
+  <input type="password" name="password" autocomplete="current-password" required placeholder="пароль">
+  <input type="hidden" name="next" value="{{ next }}">
+  <button type="submit" class="btn btn-primary">
+    Войти
+  </button>
+</form>
+
+
+<form method="post" action="{% url 'login' %}">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="hidden" name="next" value="{{ next }}">
+  <button type="submit" class="btn btn-primary">
+    Войти
+  </button>
+</form>

@@ -14,3 +14,5 @@
 - прод
 
 ```docker compose -f docker-compose.production.yml down && docker compose -f docker-compose.production.yml up -d```
+
+```  docker compose -f docker-compose.production.yml exec django python manage.py *```

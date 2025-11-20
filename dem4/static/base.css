@@ -1,4 +1,4 @@
-* {
+*, html, body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -192,14 +192,6 @@ body {
   line-height: 30px;
 }
 
-.footer {
-  text-align: center;
-  padding: 30px;
-  color: #6b7280;
-  font-size: 0.9rem;
-  background: white;
-  border-top: 1px solid #e9ecef;
-}
 
 /* Адаптив */
 @media (max-width: 768px) {
@@ -215,4 +207,36 @@ body {
   .nav-links a {
     margin-left: 16px;
   }
+}
+
+.form-login{
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.form-login-input {
+  width: 300px;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Занимает минимум высоту экрана */
+}
+
+.content {
+  flex: 1 1 auto; /* Растягивается, выталкивая футер вниз */
+  padding: 20px;
+}
+
+/* Футер — всегда внизу */
+.footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  /* Без position: sticky — просто статический элемент в потоке */
 }

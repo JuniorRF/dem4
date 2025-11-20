@@ -11,9 +11,9 @@
           {% if user.is_authenticated %}
             <div class="btn-group" role="group" aria-label="Basic outlined example">
               <button type="button" class="btn btn-outline-primary"><a class="text-decoration-none text-reset"
-                  href="#">Написать пост</a></button>
+                  href="{% url 'posts:new_post' %}">Написать пост</a></button>
               <button type="button" class="btn btn-outline-primary"><a class="text-decoration-none text-reset"
-                  href="#">{{ user.username }}</a></button>
+                  href="{% url 'posts:profile' user.username %}">{{ user.username }}</a></button>
                   <form id="logout-form" method="post" action="{% url 'logout' %}">
                     {% csrf_token %}
                     <button type="submit" class="btn btn-outline-primary">Выйти</button>
