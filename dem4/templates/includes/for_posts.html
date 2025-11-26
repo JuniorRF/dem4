@@ -1,15 +1,23 @@
-<article class="border">
-  <ul>
-    <li>
-      Автор: @<a href="{% url 'posts:profile' post.author %}">{{ post.author }}</a>
-    </li>
-    <li>
-      Дата публикации: {{ post.pub_date|date:"d E Y" }}
-    </li>
-  </ul>
-  <p>{{ post.text|linebreaks }}</p>
-  <a href="{% url 'posts:detail' post.id %}">подробная информация</a>
+<article class="post border">
+  <header class="post-header">
+    <ul class="post-meta">
+      {% if not group and post.group %}
+        <li class="post-meta-item">
+          Группа: <a href="{% url 'posts:group_page' post.group.slug %}" class="post-meta-link">{{ post.group }}</a>
+        </li>
+      {% endif %}
+      <li class="post-meta-item">
+        Автор: @<a href="{% url 'posts:profile' post.author %}" class="post-meta-link">{{ post.author }}</a>
+      </li>
+      <li class="post-meta-item">
+        Дата публикации: <time datetime="{{ post.pub_date|date:'Y-m-d' }}">{{ post.pub_date|date:"d E Y" }}</time>
+      </li>
+    </ul>
+  </header>
+  <div class="post-content">
+    {{ post.text|linebreaks|urlize }}
+  </div>
+  <footer class="post-footer">
+    <a href="{% url 'posts:detail' post.id %}" class="post-detail-link">подробная информация</a>
+  </footer>
 </article>
-{% if not group and post.group %}
-  <a href="{% url 'posts:group_page' post.group.slug %}">все записи группы</a>
-{% endif %}

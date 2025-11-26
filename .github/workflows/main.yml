@@ -87,4 +87,4 @@ jobs:
       with:
         to: ${{ secrets.TELEGRAM_ID }}
         token: ${{ secrets.TELEGRAM_TOKEN }}
-        message: Деплой успешно выполнен! 
+        message: Деплой успешно выполнен! https://демчак-резюме.рф

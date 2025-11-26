@@ -2,7 +2,6 @@ from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import get_user_model
 from django.shortcuts import get_object_or_404, redirect, render
-from django.template import context
 
 from .models import Post, Group, Comment
 from .forms import PostForm, CommentForm
@@ -49,7 +48,7 @@ def new_post(request):
     return render(request, 'posts/new_post.html', context)
 
 
-def detail(request, pk):
+def detail_post(request, pk):
     post = get_object_or_404(Post, pk=pk)
     comments = post.comments.all()
     form = CommentForm()
@@ -70,8 +69,6 @@ def edit_post(request, pk):
 
 def delete_post(request, pk):
     post = get_object_or_404(Post, pk=pk)
-    print(request)
-    print('======')
     print(dir(request))
     if post.author == request.user:
         post.delete()

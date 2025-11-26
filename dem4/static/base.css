@@ -240,3 +240,74 @@ body {
   padding: 15px 0;
   /* Без position: sticky — просто статический элемент в потоке */
 }
+
+.post {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Стили для заголовка */
+.post-header {
+  margin-bottom: 12px;
+}
+
+.post-meta {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 12px;
+  font-size: 0.9em;
+  color: #666;
+}
+
+.post-meta-item {
+  display: inline-block;
+}
+
+.post-meta-link {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.post-meta-link:hover {
+  text-decoration: underline;
+}
+
+/* Стили для контента */
+.post-content {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+/* Стили для ссылки "подробная информация" */
+.post-footer {
+  text-align: right;
+}
+
+.post-detail-link {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.post-detail-link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .post-meta {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .post-detail-link {
+    text-align: left;
+    display: block;
+  }
+}

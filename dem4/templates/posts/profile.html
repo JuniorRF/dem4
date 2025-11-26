@@ -4,6 +4,5 @@
   <h1>страница пользователя {{ user.username }}</h1>
   {% for post in post_list %}
     {% include 'includes/for_posts.html' %}
-    {% if not forloop.last %}<hr>{% endif %}
   {% endfor %}
 {% endblock %}

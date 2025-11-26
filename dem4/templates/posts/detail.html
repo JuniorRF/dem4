@@ -7,7 +7,7 @@
     <div class="card" style="width: 40rem;">
       <div class="card-body">
         <h5 class="card-title">{{ post.title }}</h5>
-        <p class="card-text">{{ post.text|linebreaksbr }}</p>
+        <p class="card-text">{{ post.text|linebreaksbr|urlize }}</p>
         {% if user == post.author %}
           <div class="mb-2">
             <a class="btn btn-sm" href="{% url 'posts:edit_post' post.id %}" role="button">

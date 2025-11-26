@@ -1,6 +1,5 @@
 import os
 from pathlib import Path
-from tempfile import template
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,6 +22,7 @@ INSTALLED_APPS = [
     'start.apps.StartConfig',
     'posts.apps.PostsConfig',
     'users.apps.UsersConfig',
+    'visitor.apps.VisitorConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -39,6 +39,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'visitor.middleware.VisitorTrackingMiddleware',
 ]
 
 ROOT_URLCONF = 'dem4.urls'
