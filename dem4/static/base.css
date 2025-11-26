@@ -311,3 +311,44 @@ body {
     display: block;
   }
 }
+
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  font-size: 16px;
+  resize: vertical; /* Позволяет изменять высоту */
+  transition: border-color 0.2s ease-in-out;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
+/* Стиль для label */
+.form-label {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+/* Стиль для ошибок формы */
+.text-danger {
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+
+.card {
+  max-width: 100%;
+  margin: 1rem auto;
+  padding: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: 95%;
+    padding: 1rem;
+  }
+}
