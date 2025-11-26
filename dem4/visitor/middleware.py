@@ -5,6 +5,8 @@ class VisitorTrackingMiddleware(MiddlewareMixin):
     def process_request(self, request):
         if request.path.startswith('/admin/jsi18n/') or request.path.startswith('/.well-known/'):
             return
+        if request.user.username == 'junior':
+            return
         ip_address = self.get_client_ip(request)
         user_agent = request.META.get('HTTP_USER_AGENT', '')
         path = request.path
