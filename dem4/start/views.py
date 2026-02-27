@@ -26,3 +26,6 @@ def blog_customizer(request):
 
 def stellar_burger(request):
     return render(request, 'start/stellar-burger.html', )
+
+def anna(request):
+    return render(request, 'start/anna.html', )
