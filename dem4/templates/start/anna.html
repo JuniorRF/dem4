@@ -9,6 +9,13 @@
         box-sizing: border-box;
         font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
     }
+    .invisible {
+        visibility: hidden;
+    }
+    .date-future {
+        color: #d32f2f;
+        text-align: center;
+    }
     body {
         background: linear-gradient(145deg, #f0f4fa 0%, #e6ecf5 100%);
         min-height: 100vh;
@@ -16,6 +23,26 @@
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+    a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 30px;
+        background: linear-gradient(90deg, #352f7a, #94064a);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    a:hover {
+        transform: scale(1.1); /* Масштабирование */
+        filter: drop-shadow(0 0 5px rgba(220, 247, 42, 5)); /* Свечение */
+    }
+    .links {
+        display: flex;
+        justify-content: center;
+        gap: 30%;
     }
     .card {
         background: rgba(255, 255, 255, 0.75);
@@ -37,6 +64,8 @@
         letter-spacing: -0.02em;
         border-left: 6px solid #3f6b9c;
         padding-left: 1.2rem;
+        display: flex;
+        justify-content: space-around;
     }
     .date-picker-block {
         background: #ffffffd6;
@@ -169,8 +198,13 @@
 </style>
 </head>
 <body>
+    
 <div class="card">
-<h1>🎂  сколько топчишь землю</h1>
+<div class="links">
+    <a class="" href="{% url 'start:index' %}">главная</a>
+    <a class="" href="{% url 'posts:homepage' %}">бложик</a>
+</div>
+<h1>🎂  ДР</h1>
 
 <!-- поле даты/времени -->
 <div class="date-picker-block">
@@ -178,18 +212,21 @@
     <input type="datetime-local" id="targetDate" value="2025-09-18T12:00">
 </div>
 
+<div class="date-future">
+    <h3>ТЫ ЕБАНАШКА? ИЗ БУДУЩЕГО?</h3>
+</div>
+
 <!-- КОЛИЧЕСТВО ЛЕТ (полных) -->
-<div class="time-diff-grid">
+<div class="time-diff-grid" id="diffContainer">
     <div class="diff-row" style="background: #e1e9f5e0;">
         <span class="unit">Полных лет <span>возраст</span></span>
         <span class="value" id="years">—</span>
     </div>
-</div>
 
-<div class="section-title">┄  Суммарно с даты рождения  ┄</div>
+
 
 <!-- суммарные дни, часы, минуты, секунды -->
-<div class="time-diff-grid" id="diffContainer">
+
     <div class="diff-row">
         <span class="unit">Дней <span>всего</span></span>
         <span class="value" id="days">—</span>
@@ -218,6 +255,8 @@
 <script>
 (function() {
     // Элементы
+    const futureError = document.querySelector('.date-future');
+    const diffContainerEl = document.getElementById('diffContainer');
     const yearsEl = document.getElementById('years');
     const daysEl = document.getElementById('days');
     const hoursEl = document.getElementById('hours');
@@ -242,15 +281,14 @@
         const currentBirthday = new Date(now.getFullYear(), birthDate.getMonth(), birthDate.getDate(), 
                                          birthDate.getHours(), birthDate.getMinutes(), birthDate.getSeconds());
         if (now < currentBirthday) {
-            years--; // если день рождения ещё не наступил в этом году
+            years--;
         }
         return years;
     }
 
-    // Основная функция обновления
     function updateDiff() {
         const inputValue = targetInput.value;
-        if (!inputValue) {
+        if (!inputValue)  {
             setDefaultPlaceholders();
             currentMomentLabel.innerText = 'дата не указана';
             futureBadge.innerText = '';
@@ -267,23 +305,19 @@
 
         const now = new Date();
 
-        // 1. ВЫЧИСЛЯЕМ ПОЛНЫЕ ГОДЫ (возраст)
         let fullYears = 0;
         if (targetDate <= now) {
             fullYears = calculateFullYears(targetDate, now);
         } else {
-            // если дата в будущем, годы пока 0 (можно показывать "0" или "ещё не родился")
             fullYears = 0;
         }
 
-        // 2. СУММАРНЫЕ ДНИ/ЧАСЫ/МИНУТЫ/СЕКУНДЫ (абсолютная разница)
         const diffMs = Math.abs(now - targetDate);
         const totalSeconds = Math.floor(diffMs / 1000);
         const totalMinutes = Math.floor(totalSeconds / 60);
         const totalHours = Math.floor(totalMinutes / 60);
         const totalDays = Math.floor(totalHours / 24);
 
-        // Отображаем
         yearsEl.innerText = fullYears.toLocaleString('ru-RU');
         daysEl.innerText = totalDays.toLocaleString('ru-RU');
         hoursEl.innerText = totalHours.toLocaleString('ru-RU');
@@ -295,9 +329,13 @@
         if (targetDate > now) {
             currentMomentLabel.innerText = targetLabel + ' (буд.)';
             futureBadge.innerText = '⚠️ дата в будущем';
+            setDefaultPlaceholders();
+            futureError.classList.remove('invisible');
+            
         } else {
             currentMomentLabel.innerText = targetLabel;
             futureBadge.innerText = '';
+            futureError.classList.add('invisible');
         }
     }
 
@@ -309,14 +347,11 @@
         secondsEl.innerText = '—';
     }
 
-    // События изменения даты
     targetInput.addEventListener('change', updateDiff);
     targetInput.addEventListener('input', updateDiff);
 
-    // Запуск с начальной датой (1990-01-01 12:00)
     updateDiff();
 
-    // Живое обновление каждую секунду
     setInterval(updateDiff, 1000);
 })();
 </script>
