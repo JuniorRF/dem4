@@ -54,8 +54,8 @@ jobs:
     steps:
     - name: Checkout repo
       uses: actions/checkout@v5
-    - name: Copy docker-compose.yml via ssh
-      uses: appleboy/scp-action@master
+    - name: Копируем Docker compose
+      uses: appleboy/scp-action@v0.1.7
     # Передаём параметры для action appleboy/scp-action:
       with:
         host: ${{ secrets.HOST }}
@@ -63,8 +63,8 @@ jobs:
         password: ${{ secrets.HOST_PASSWORD }}
         source: "docker-compose.production.yml"
         target: "app"
-    - name: Executing remote ssh commands to deploy
-      uses: appleboy/ssh-action@master
+    - name: Выполнение удаленных SSH-команд для развертывания
+      uses: appleboy/ssh-action@v1.0.3
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USER }}
