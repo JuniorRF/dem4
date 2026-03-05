@@ -14,4 +14,5 @@ urlpatterns = [
     path('blog-customizer', views.blog_customizer, name='blog-customizer'),
     path('feed', views.stellar_burger, name='stellar-burger'),
     path('anna/', views.anna, name='anna'),
+    path('xyi/', views.xyi, name='xyi'),
 ]

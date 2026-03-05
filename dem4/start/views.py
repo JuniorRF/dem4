@@ -29,3 +29,6 @@ def stellar_burger(request):
 
 def anna(request):
     return render(request, 'start/anna.html', )
+
+def xyi(request):
+    return render(request, 'start/xyi.html', )
